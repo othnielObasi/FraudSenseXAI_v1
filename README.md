@@ -30,7 +30,9 @@ pip install -r requirements.txt
 
 Usage
 To start the FastAPI server:
+
 uvicorn api.main:app --reload
+
 Navigate to http://localhost:8000 in your web browser to access the application.
 
 Contributing
