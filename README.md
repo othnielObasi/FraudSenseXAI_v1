@@ -21,7 +21,9 @@
 Clone the project and install dependencies:
 
 git clone https://github.com/your-username/FraudSenseXAI.git
+
 cd FraudSenseXAI
+
 pip install -r requirements.txt
 
 
