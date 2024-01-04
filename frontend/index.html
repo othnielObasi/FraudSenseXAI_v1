@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fraud Prediction Form</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Custom CSS for styling */
+        .result-container {
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            padding: 15px;
+            border-radius: 5px;
+            background-color: #f5f5f5;
+        }
+
+        .plot-container {
+            margin-top: 20px;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f5f5f5;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <div class="card">
+                    <h5 class="card-header bg-dark text-white text-center">Fraud Prediction</h5>
+                    <div class="card-body">
+                        <form id="predictionForm">
+                            <div class="form-group">
+                                <label for="step">Step:</label>
+                                <input type="number" class="form-control" name="step" id="step" required placeholder="Step" min="1" max="720">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="transaction_type">Transaction Type:</label>
+                                <select class="form-control" name="type" id="transaction_type" required>
+                                    <option value="Transfer">Transfer</option>
+                                    <option value="Payment">Payment</option>
+                                    <option value="Cash Out">Cash Out</option>
+                                    <option value="Cash In">Cash In</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="amount">Amount:</label>
+                                <input type="number" class="form-control" name="amount" id="amount" required placeholder="Amount">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="oldbalanceOrg">Old Balance Org:</label>
+                                <input type="number" class="form-control" name="oldbalanceOrg" id="oldbalanceOrg" required placeholder="Old Balance">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="selected_model">Model Selection:</label>
+                                <select class="form-control" name="model_selection" id="model_selection" required>
+                                    <option value="Random Forest">Random Forest</option>
+                                    <option value="Gradient Boost">Gradient Boost</option>
+                                    <option value="Neural Network">Neural Network</option>
+                                </select>
+                            </div>
+
+                            <button type="button" class="btn btn-primary btn-block" onclick="submitForm()">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-3 result-container">
+        <!-- Containers for displaying results and explanations -->
+        <p><strong>Prediction:</strong></p>
+        <p id="predictionResult"></p>
+
+        <p><strong>LIME Explanation:</strong></p>
+        <p id="limeExplanation"></p>
+
+        <p><strong>Counterfactual Explanation:</strong></p>
+        <p id="counterfactualExplanation"></p>
+    </div>
+
+    <div class="container mt-3 plot-container">
+        <!-- Containers for displaying plots -->
+        <div class="row">
+            <div class="col-md-6">
+                <p><strong>CFE Radial Plot:</strong></p>
+                <div id="cfeRadialPlot"></div>
+            </div>
+            <div class="col-md-6">
+                <p><strong>CFE Plotly Plot:</strong></p>
+                <div id="cfePlotly"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Include Plotly JavaScript Library -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <!-- Include the updated script.js file -->
+    <script src="script.js"></script>
+</body>
+</html>

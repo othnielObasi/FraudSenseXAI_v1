@@ -1,0 +1,9 @@
+Flask==1.1.2
+pandas==1.1.5
+joblib==1.0.1
+plotly==4.14.3
+dice-ml==0.6.1
+lime==0.2.0.1
+scikit-learn==0.24.1
+IPython==7.16.1
+
